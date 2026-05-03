@@ -47,6 +47,9 @@ app.use(sanitizeInput);
 // ROUTES
 // ─────────────────────────────────────────────────────────────────────
 
+// Keep-alive for Render free tier
+app.get('/ping', (req, res) => res.send('pong'));
+
 // Health check
 app.get(
   '/api/health',
