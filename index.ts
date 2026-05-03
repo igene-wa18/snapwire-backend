@@ -1,6 +1,6 @@
 import express from 'express';
 import http from 'http';
-import { getEnvConfig } from './utils/env.js';
+import { getEnvConfig } from './utils/env';
 import { connectDB, disconnectDB } from './utils/database.js';
 import { initializeSocket } from './socket/index.js';
 import { errorHandler, asyncHandler } from './middleware/errorHandler.js';
@@ -118,9 +118,9 @@ async function startServer() {
     await connectDB();
 
     // Start HTTP server
-    server.listen(config.PORT, config.HOST, () => {
-      console.log(`\n✓ Server running on http://${config.HOST}:${config.PORT}`);
-      console.log(`✓ Socket.io listening on ws://${config.HOST}:${config.PORT}`);
+    const PORT = process.env.PORT || config.PORT || 10000;
+    server.listen(Number(PORT), '0.0.0.0', () => {
+      console.log(`\n✓ Server running on port ${PORT}`);
       console.log(`✓ Environment: ${config.NODE_ENV}\n`);
     });
   } catch (error) {
