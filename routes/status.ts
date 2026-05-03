@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { authMiddleware } from '../middleware/auth.ts';
-import { asyncHandler } from '../middleware/errorHandler.ts';
-import { uploadStatus, getFeed, deleteStatus, markAsViewed } from '../controllers/statusController.ts';
+import { authMiddleware } from '../middleware/auth.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
+import { uploadStatus, getFeed, deleteStatus, markAsViewed } from '../controllers/statusController.js';
 
 const router = Router();
 

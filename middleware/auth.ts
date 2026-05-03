@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { verifyAccessToken } from '../utils/jwt.ts';
-import { createAuthError } from '../utils/errors.ts';
-import User from '../models/User.ts';
+import { verifyAccessToken } from '../utils/jwt.js';
+import { createAuthError } from '../utils/errors.js';
+import User from '../models/User.js';
 
 export interface AuthRequest extends Request {
   user?: {

@@ -8,8 +8,7 @@
     "lib": ["esnext"],
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "allowImportingTsExtensions": false,
     "moduleResolution": "node",
     "baseUrl": ".",
     "types": ["node"]

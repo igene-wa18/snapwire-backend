@@ -1,7 +1,7 @@
 import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
-import { getEnvConfig } from '../utils/env.ts';
+import { getEnvConfig } from '../utils/env.js';
 
 const config = getEnvConfig();
 

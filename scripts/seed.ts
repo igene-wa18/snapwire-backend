@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
-import { getEnvConfig } from '../utils/env.ts';
-import User from '../models/User.ts';
-import Chat from '../models/Chat.ts';
-import Message from '../models/Message.ts';
+import { getEnvConfig } from '../utils/env.js';
+import User from '../models/User.js';
+import Chat from '../models/Chat.js';
+import Message from '../models/Message.js';
 
 const config = getEnvConfig();
 

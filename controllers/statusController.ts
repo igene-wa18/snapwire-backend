@@ -1,8 +1,8 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middleware/auth.ts';
-import Status from '../models/Status.ts';
-import User from '../models/User.ts';
-import { createAuthError, createValidationError, createNotFoundError, createForbiddenError } from '../utils/errors.ts';
+import { AuthRequest } from '../middleware/auth.js';
+import Status from '../models/Status.js';
+import User from '../models/User.js';
+import { createAuthError, createValidationError, createNotFoundError, createForbiddenError } from '../utils/errors.js';
 
 /**
  * POST /api/status

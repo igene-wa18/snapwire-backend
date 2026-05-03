@@ -1,7 +1,7 @@
-import Chat, { IChat } from '../models/Chat.ts';
-import Message from '../models/Message.ts';
-import User from '../models/User.ts';
-import { createNotFoundError, createForbiddenError } from '../utils/errors.ts';
+import Chat, { IChat } from '../models/Chat.js';
+import Message from '../models/Message.js';
+import User from '../models/User.js';
+import { createNotFoundError, createForbiddenError } from '../utils/errors.js';
 import mongoose from 'mongoose';
 
 /**

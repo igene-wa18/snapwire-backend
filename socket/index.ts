@@ -1,11 +1,11 @@
 import { Server as HttpServer } from 'http';
 import { Server, Socket } from 'socket.io';
-import { getEnvConfig } from '../utils/env.ts';
-import { verifyAccessToken } from '../utils/jwt.ts';
-import * as userService from '../services/userService.ts';
-import * as messageService from '../services/messageService.ts';
-import * as chatService from '../services/chatService.ts';
-import { registerGroupEvents } from './groupEvents.ts';
+import { getEnvConfig } from '../utils/env.js';
+import { verifyAccessToken } from '../utils/jwt.js';
+import * as userService from '../services/userService.js';
+import * as messageService from '../services/messageService.js';
+import * as chatService from '../services/chatService.js';
+import { registerGroupEvents } from './groupEvents.js';
 
 const config = getEnvConfig();
 
