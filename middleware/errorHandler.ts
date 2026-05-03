@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { AppError, ErrorCodes } from '../utils/errors.js';
-import { getEnvConfig } from '../utils/env.js';
+import { AppError, ErrorCodes } from '../utils/errors.ts';
+import { getEnvConfig } from '../utils/env.ts';
 
 const config = getEnvConfig();
 

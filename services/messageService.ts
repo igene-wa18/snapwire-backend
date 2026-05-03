@@ -1,7 +1,7 @@
-import Message, { IMessage } from '../models/Message.js';
-import Chat from '../models/Chat.js';
-import User from '../models/User.js';
-import { createNotFoundError, createForbiddenError } from '../utils/errors.js';
+import Message, { IMessage } from '../models/Message.ts';
+import Chat from '../models/Chat.ts';
+import User from '../models/User.ts';
+import { createNotFoundError, createForbiddenError } from '../utils/errors.ts';
 import mongoose from 'mongoose';
 
 /**

@@ -1,9 +1,9 @@
 import { Router, Response } from 'express';
-import { authMiddleware, AuthRequest } from '../middleware/auth.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
-import { CreateChatSchema, UpdateChatSchema, MarkChatReadSchema, AddGroupMemberSchema } from '../utils/validation.js';
-import { createValidationError } from '../utils/errors.js';
-import * as chatService from '../services/chatService.js';
+import { authMiddleware, AuthRequest } from '../middleware/auth.ts';
+import { asyncHandler } from '../middleware/errorHandler.ts';
+import { CreateChatSchema, UpdateChatSchema, MarkChatReadSchema, AddGroupMemberSchema } from '../utils/validation.ts';
+import { createValidationError } from '../utils/errors.ts';
+import * as chatService from '../services/chatService.ts';
 
 const router = Router();
 

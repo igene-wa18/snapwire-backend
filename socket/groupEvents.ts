@@ -1,10 +1,10 @@
 import { Server } from 'socket.io';
-import { AuthenticatedSocket } from './index.js';
-import Chat from '../models/Chat.js';
-import User from '../models/User.js';
-import Message from '../models/Message.js';
-import * as chatService from '../services/chatService.js';
-import { createForbiddenError, createNotFoundError, createValidationError } from '../utils/errors.js';
+import { AuthenticatedSocket } from './index.ts';
+import Chat from '../models/Chat.ts';
+import User from '../models/User.ts';
+import Message from '../models/Message.ts';
+import * as chatService from '../services/chatService.ts';
+import { createForbiddenError, createNotFoundError, createValidationError } from '../utils/errors.ts';
 import mongoose from 'mongoose';
 
 /**

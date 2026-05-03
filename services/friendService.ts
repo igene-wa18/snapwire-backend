@@ -1,7 +1,7 @@
-import FriendRequest from '../models/FriendRequest.js';
-import User from '../models/User.js';
-import Chat from '../models/Chat.js';
-import { createNotFoundError, createValidationError, createForbiddenError } from '../utils/errors.js';
+import FriendRequest from '../models/FriendRequest.ts';
+import User from '../models/User.ts';
+import Chat from '../models/Chat.ts';
+import { createNotFoundError, createValidationError, createForbiddenError } from '../utils/errors.ts';
 import mongoose from 'mongoose';
 
 /**

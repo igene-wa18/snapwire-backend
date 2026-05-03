@@ -1,9 +1,9 @@
 import express from 'express';
 import http from 'http';
-import { getEnvConfig } from './utils/env';
-import { connectDB, disconnectDB } from './utils/database.js';
-import { initializeSocket } from './socket/index.js';
-import { errorHandler, asyncHandler } from './middleware/errorHandler.js';
+import { getEnvConfig } from './utils/env.ts';
+import { connectDB, disconnectDB } from './utils/database.ts';
+import { initializeSocket } from './socket/index.ts';
+import { errorHandler, asyncHandler } from './middleware/errorHandler.ts';
 import {
   helmetMiddleware,
   corsMiddleware,
@@ -12,13 +12,13 @@ import {
   messageLimiter,
   requestLogger,
   sanitizeInput,
-} from './middleware/security.js';
-import authRoutes from './routes/auth.js';
-import chatRoutes from './routes/chats.js';
-import messageRoutes from './routes/messages.js';
-import userRoutes from './routes/users.js';
-import friendRoutes from './routes/friends.js';
-import statusRoutes from './routes/status.js';
+} from './middleware/security.ts';
+import authRoutes from './routes/auth.ts';
+import chatRoutes from './routes/chats.ts';
+import messageRoutes from './routes/messages.ts';
+import userRoutes from './routes/users.ts';
+import friendRoutes from './routes/friends.ts';
+import statusRoutes from './routes/status.ts';
 
 const config = getEnvConfig();
 

@@ -1,9 +1,9 @@
 import { Router, Response } from 'express';
-import { authMiddleware, AuthRequest } from '../middleware/auth.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
-import { createValidationError } from '../utils/errors.js';
-import * as userService from '../services/userService.js';
-import * as friendService from '../services/friendService.js';
+import { authMiddleware, AuthRequest } from '../middleware/auth.ts';
+import { asyncHandler } from '../middleware/errorHandler.ts';
+import { createValidationError } from '../utils/errors.ts';
+import * as userService from '../services/userService.ts';
+import * as friendService from '../services/friendService.ts';
 import { z } from 'zod';
 
 const router = Router();

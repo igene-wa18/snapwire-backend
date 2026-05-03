@@ -1,12 +1,12 @@
 import { Router, Request, Response } from 'express';
 import crypto from 'crypto';
-import User from '../models/User.js';
-import Chat from '../models/Chat.js';
-import { RegisterSchema, LoginSchema, RefreshTokenSchema } from '../utils/validation.js';
-import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from '../utils/jwt.js';
-import { createAuthError, createValidationError, createInternalError } from '../utils/errors.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
-import { authMiddleware, AuthRequest } from '../middleware/auth.js';
+import User from '../models/User.ts';
+import Chat from '../models/Chat.ts';
+import { RegisterSchema, LoginSchema, RefreshTokenSchema } from '../utils/validation.ts';
+import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from '../utils/jwt.ts';
+import { createAuthError, createValidationError, createInternalError } from '../utils/errors.ts';
+import { asyncHandler } from '../middleware/errorHandler.ts';
+import { authMiddleware, AuthRequest } from '../middleware/auth.ts';
 
 const router = Router();
 

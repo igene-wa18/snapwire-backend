@@ -1,5 +1,5 @@
-import User from '../models/User.js';
-import { createNotFoundError } from '../utils/errors.js';
+import User from '../models/User.ts';
+import { createNotFoundError } from '../utils/errors.ts';
 import mongoose from 'mongoose';
 
 /**

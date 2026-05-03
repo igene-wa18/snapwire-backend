@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
+    "noEmit": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "types": ["node"]
