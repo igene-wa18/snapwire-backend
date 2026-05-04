@@ -1,6 +1,6 @@
-# SnapWire Backend - Authentication & Login
+# Synapsis Backend - Authentication & Login
 
-This document explains the authentication architecture and login flow for the SnapWire (formerly ChatApp) backend.
+This document explains the authentication architecture and login flow for the Synapsis (formerly ChatApp) backend.
 
 ## 🔑 Authentication Architecture
 

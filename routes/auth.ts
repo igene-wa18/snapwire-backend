@@ -261,7 +261,7 @@ router.get(
   authMiddleware,
   asyncHandler(async (req: AuthRequest, res: Response) => {
     const timestamp = Math.floor(Date.now() / 1000);
-    const folder = 'snapwire/avatars';
+    const folder = 'synapsis/avatars';
     
     const cloudinaryUrl = process.env.CLOUDINARY_URL || '';
     const match = cloudinaryUrl.match(/cloudinary:\/\/([^:]+):([^@]+)@(.+)/);
