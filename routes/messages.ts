@@ -79,6 +79,15 @@ router.post(
     // Increment unread counts for other participants
     await chatService.incrementUnreadForAll(chatId, req.user.userId);
 
+    // Broadcast via Socket.IO to all users in the chat room
+    const io = req.app.get('io');
+    if (io) {
+      io.to(`chat:${chatId}`).emit('message:new', {
+        ...message.toObject(),
+        chatId,
+      });
+    }
+
     res.status(201).json({
       success: true,
       data: { message },
