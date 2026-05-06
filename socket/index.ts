@@ -105,6 +105,7 @@ export function initializeSocket(httpServer: HttpServer): Server {
 
     /**
      * Send a message via Socket.io (real-time path)
+     * Optimized: broadcast immediately after DB save, run sidebar updates in background
      */
     socket.on('message:send', async (data: {
       chatId: string;
@@ -124,7 +125,7 @@ export function initializeSocket(httpServer: HttpServer): Server {
           return;
         }
 
-        // Create the message
+        // Create the message (critical path — must await)
         const message = await messageService.createMessage(
           chatId,
           socket.userId!,
@@ -133,20 +134,7 @@ export function initializeSocket(httpServer: HttpServer): Server {
           replyTo
         );
 
-        // Update last message in chat
-        await chatService.updateLastMessage(
-          chatId,
-          message._id.toString(),
-          content || '',
-          socket.userId!,
-          type || 'text',
-          message.createdAt
-        );
-
-        // Increment unread counts
-        await chatService.incrementUnreadForAll(chatId, socket.userId!);
-
-        // Emit to the chat room (including sender for confirmation)
+        // ⚡ Broadcast IMMEDIATELY — don't wait for sidebar updates
         io.to(`chat:${chatId}`).emit('message:new', {
           ...message.toObject(),
           chatId,
@@ -154,6 +142,20 @@ export function initializeSocket(httpServer: HttpServer): Server {
         });
 
         console.log(`  ✉ Message sent in chat:${chatId} by ${socket.userId}`);
+
+        // Run sidebar updates in background (non-blocking)
+        Promise.all([
+          chatService.updateLastMessage(
+            chatId,
+            message._id.toString(),
+            content || '',
+            socket.userId!,
+            type || 'text',
+            message.createdAt
+          ),
+          chatService.incrementUnreadForAll(chatId, socket.userId!),
+        ]).catch(err => console.error('Background update error:', err));
+
       } catch (error) {
         console.error('Error in message:send:', error);
         socket.emit('error', {
