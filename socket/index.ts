@@ -9,6 +9,18 @@ import { registerGroupEvents } from './groupEvents.js';
 
 const config = getEnvConfig();
 
+let ioInstance: Server | null = null;
+
+/**
+ * Get the Socket.io server instance (for emitting from outside socket handlers)
+ */
+export function getIO(): Server {
+  if (!ioInstance) {
+    throw new Error('Socket.io not initialized — call initializeSocket first');
+  }
+  return ioInstance;
+}
+
 /**
  * Extended Socket type with user authentication info
  */
@@ -30,6 +42,9 @@ export function initializeSocket(httpServer: HttpServer): Server {
     pingTimeout: 60000,
     pingInterval: 25000,
   });
+
+  // Store for getIO()
+  ioInstance = io;
 
   // ─────────────────────────────────────────────────────────────────────
   // JWT AUTH MIDDLEWARE
